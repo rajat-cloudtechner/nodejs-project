@@ -31,7 +31,9 @@ module.exports = function (config) {
     customLaunchers: {
       ChromeHeadlessNoSandbox: {
         base: 'ChromeHeadless',
-        flags: ['--no-sandbox']
+        flags: ['--no-sandbox',
+               '--user-data-dir=/tmp/chrome-test',
+               '--disable-web-security']
       }
     },
     singleRun: false
