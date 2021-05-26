@@ -1,21 +1,4 @@
-pipeline {
-    agent none
-    stages {
-        stage('Back-end') {
-            agent {
-                docker { image 'maven:3.8.1' }
-            }
-            steps {
-                sh 'mvn --version'
-            }
-        }
-        stage('Front-end') {
-            agent {
-                docker { image 'node:14-alpine' }
-            }
-            steps {
-                sh 'node --version'
-            }
-        }
-    }
-}
+@Library('nodejs-shared-lib') _
+
+// enter maven 'your git repoUrl','your git credential id','your sonar-url(3.91.3.213:9000)','your sonar-name','your sonar token-id'
+node 'https://github.com/cloudtechner/nodejs-project.git','85f2b482-6737-4e70-a7ec-2c63fe86b20d','sonar','node-sonar'
